@@ -4,12 +4,13 @@
   "description": "Simple, elegant, and configurable redux-saga monitor.",
   "main": "dist/saga-monitor.js",
   "module": "dist/saga-monitor.es.js",
-  "types": "./index.d.ts",
+  "types": "./lib/index.d.ts",
   "directories": {
     "example": "example"
   },
   "files": [
     "dist",
+    "lib",
     "README.md",
     "LICENSE"
   ],
