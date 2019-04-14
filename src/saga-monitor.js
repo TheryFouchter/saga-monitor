@@ -2,20 +2,12 @@
 import * as is from "@redux-saga/is";
 import {
   CANCELLED,
-  IS_BROWSER,
-  IS_REACT_NATIVE,
   PENDING,
   REJECTED,
   RESOLVED
 } from "./modules/constants";
 import { isRaceEffect } from "./modules/checkers";
-// import logSaga from "./modules/logSaga";
 import Manager from "./modules/Manager";
-import { version } from "../package.json";
-
-const LOG_SAGAS_STYLE = "font-weight: bold";
-
-const globalScope = IS_BROWSER ? window : IS_REACT_NATIVE ? global : null;
 
 function time() {
   if (typeof performance !== "undefined" && performance.now) {
@@ -169,14 +161,6 @@ function createSagaMonitor(options = {}) {
     }
   }
 
-  // if (globalScope) {
-  //   if (verbose) {
-  //     console[level]("View Sagas by executing %c$$LogSagas()", LOG_SAGAS_STYLE, "in the console");
-  //   }
-  //   // Export the snapshot-logging function to run from the browser console or extensions.
-  //   globalScope.$$LogSagas = () => logSaga(manager, color);
-  // }
-
   return {
     rootSagaStarted,
     effectTriggered,
@@ -187,12 +171,4 @@ function createSagaMonitor(options = {}) {
   };
 }
 
-// Version
-createSagaMonitor.VERSION = version;
-// logSaga.VERSION = version;
-
-// Export the snapshot-logging function for arbitrary use by external code.
-// export { logSaga };
-
-// Export the `sagaMonitor` to pass to the middleware.
 export default createSagaMonitor;
