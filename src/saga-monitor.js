@@ -9,7 +9,7 @@ import {
   RESOLVED
 } from "./modules/constants";
 import { isRaceEffect } from "./modules/checkers";
-import logSaga from "./modules/logSaga";
+// import logSaga from "./modules/logSaga";
 import Manager from "./modules/Manager";
 import { version } from "../package.json";
 
@@ -169,13 +169,13 @@ function createSagaMonitor(options = {}) {
     }
   }
 
-  if (globalScope) {
-    if (verbose) {
-      console[level]("View Sagas by executing %c$$LogSagas()", LOG_SAGAS_STYLE, "in the console");
-    }
-    // Export the snapshot-logging function to run from the browser console or extensions.
-    globalScope.$$LogSagas = () => logSaga(manager, color);
-  }
+  // if (globalScope) {
+  //   if (verbose) {
+  //     console[level]("View Sagas by executing %c$$LogSagas()", LOG_SAGAS_STYLE, "in the console");
+  //   }
+  //   // Export the snapshot-logging function to run from the browser console or extensions.
+  //   globalScope.$$LogSagas = () => logSaga(manager, color);
+  // }
 
   return {
     rootSagaStarted,
@@ -189,10 +189,10 @@ function createSagaMonitor(options = {}) {
 
 // Version
 createSagaMonitor.VERSION = version;
-logSaga.VERSION = version;
+// logSaga.VERSION = version;
 
 // Export the snapshot-logging function for arbitrary use by external code.
-export { logSaga };
+// export { logSaga };
 
 // Export the `sagaMonitor` to pass to the middleware.
 export default createSagaMonitor;
