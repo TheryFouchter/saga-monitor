@@ -4,6 +4,7 @@
   "description": "Simple, elegant, and configurable redux-saga monitor.",
   "main": "dist/saga-monitor.js",
   "module": "dist/saga-monitor.es.js",
+  "types": "./main.d.ts",
   "directories": {
     "example": "example"
   },
